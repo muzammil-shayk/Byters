@@ -53,7 +53,6 @@ const Crew = () => {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen w-full">
-      {/* Navigation Buttons */}
       {currentPage > 1 && (
         <button
           onClick={handlePrevPage}
@@ -67,16 +66,15 @@ const Crew = () => {
       {currentPage < totalPages && (
         <button
           onClick={handleNextPage}
-          className="button-bg absolute right-4 !text-white w-12 bottom-1/2 transition-transform duration-300 hover:scale-125"
+          className="button-bg absolute right-4 !text-white lg:w-12 lg:bottom-1/2 transition-transform duration-300 hover:scale-125"
         >
           <span className="material-symbols-outlined text-4xl ml-1 mt-1">
             arrow_forward_ios
           </span>
         </button>
       )}
-      {/* Grid Container */}
       <div
-        className={`cursor-pointer grid grid-cols-3 gap-14 bg-opacity-60 rounded-xl transition-opacity duration-500 ease-in-out relative bottom-10 ${fadeClass} max-w-6xl mx-auto`}
+        className={`cursor-pointer grid scale-50 bottom-pic relative lg:bottom-10 lg:scale-100 lg:grid-cols-3 gap-14 bg-opacity-60 rounded-xl transition-opacity duration-500 ease-in-out ${fadeClass} max-w-6xl mx-auto`}
       >
         {currentGrids.map((image, index) => (
           <div

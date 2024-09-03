@@ -2,14 +2,12 @@
 html {
   background-color: black;
 }
-
 .absolute-position {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/* Add this to your global CSS or in a CSS module */
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -30,7 +28,7 @@ html {
 .screen.active {
   opacity: 1;
   position: relative;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 .button-bg {
   background-color: #00000038;

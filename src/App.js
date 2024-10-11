@@ -1,25 +1,36 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
+import Layout from "./Layout/Layout";
 import HomeScr from "./Components/HomeScr";
 import Crew from "./Components/Crew";
-import { useSelector } from "react-redux";
 import Background from "./Components/Background";
+import { Route, Switch, useLocation, Redirect } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import AnimatePage from "./Layout/AnimatedPage";
 
 function App() {
-  const isCrewActive = useSelector((state) => state.page.isCrewActive);
-  const isHomeScreenActive = useSelector(
-    (state) => state.page.isHomeScreenActive
-  );
+  const location = useLocation();
 
   return (
     <Background>
-      <Navbar />
-      <div className={`screen ${isHomeScreenActive ? "active" : ""}`}>
-        <HomeScr />
-      </div>
-      <div className={`screen ${isCrewActive ? "active" : ""}`}>
-        <Crew />
-      </div>
+      <Layout>
+        <AnimatePresence mode="wait">
+          <Switch location={location} key={location.pathname}>
+            <Route path="/" exact>
+              <AnimatePage>
+                <HomeScr />
+              </AnimatePage>
+            </Route>
+            <Route path="/crew">
+              <AnimatePage>
+                <Crew />
+              </AnimatePage>
+            </Route>
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
+          </Switch>
+        </AnimatePresence>
+      </Layout>
     </Background>
   );
 }
